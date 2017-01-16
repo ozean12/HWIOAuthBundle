@@ -4,6 +4,9 @@ namespace HWI\Bundle\OAuthBundle\OAuth\ResourceOwner;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class FigoResourceOwner.
+ */
 class FigoResourceOwner extends GenericOAuth2ResourceOwner
 {
     /**

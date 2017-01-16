@@ -4,6 +4,9 @@ namespace HWI\Bundle\OAuthBundle\Tests\OAuth\ResourceOwner;
 
 use HWI\Bundle\OAuthBundle\OAuth\ResourceOwner\FigoResourceOwner;
 
+/**
+ * Class FigoResourceOwnerTest.
+ */
 class FigoResourceOwnerTest extends GenericOAuth2ResourceOwnerTest
 {
     protected $userResponse = <<<json
