@@ -12,12 +12,12 @@ class FigoResourceOwner extends GenericOAuth2ResourceOwner
     /**
      * {@inheritdoc}
      */
-    protected $paths = array(
+    protected $paths = [
         'identifier' => 'user_id',
         'nickname' => 'name',
         'realname' => 'name',
         'email' => 'email',
-    );
+    ];
 
     /**
      * {@inheritdoc}
@@ -26,11 +26,11 @@ class FigoResourceOwner extends GenericOAuth2ResourceOwner
     {
         parent::configureOptions($resolver);
 
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'authorization_url' => 'https://api.figo.me/auth/code',
             'access_token_url' => 'https://api.figo.me/auth/token',
             'infos_url' => 'https://api.figo.me/rest/user',
             'use_bearer_authorization' => false,
-        ));
+        ]);
     }
 }
