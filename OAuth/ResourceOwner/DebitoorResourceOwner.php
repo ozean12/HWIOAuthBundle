@@ -3,9 +3,12 @@
 namespace HWI\Bundle\OAuthBundle\OAuth\ResourceOwner;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Buzz\Message\Response as HttpResponse;
 
 /**
  * Class DebitoorResourceOwner.
+ *
+ * @author Aleksei Vesnin <dizeee@dizeee.ru>
  */
 class DebitoorResourceOwner extends GenericOAuth2ResourceOwner
 {
@@ -18,6 +21,18 @@ class DebitoorResourceOwner extends GenericOAuth2ResourceOwner
         'realname' => 'name',
         'email' => 'email',
     ];
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function doGetUserInformationRequest($url, array $parameters = [])
+    {
+        $response = new HttpResponse();
+        $response->setContent('{}');
+
+        return $response;
+    }
+
 
     /**
      * {@inheritdoc}
