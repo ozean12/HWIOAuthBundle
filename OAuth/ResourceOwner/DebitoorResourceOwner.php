@@ -16,11 +16,14 @@ class DebitoorResourceOwner extends GenericOAuth2ResourceOwner
      * {@inheritdoc}
      */
     protected $paths = [
-        'identifier' => 'id',
+        'identifier' => 'email',
         'nickname' => 'name',
         'realname' => 'name',
         'email' => 'email',
     ];
+
+    /** @var string */
+    private $userInformationResponse = '{"id": "","name":"Debitoor User","email":""}';
 
     /**
      * {@inheritdoc}
@@ -28,11 +31,10 @@ class DebitoorResourceOwner extends GenericOAuth2ResourceOwner
     protected function doGetUserInformationRequest($url, array $parameters = [])
     {
         $response = new HttpResponse();
-        $response->setContent('{}');
+        $response->setContent($this->userInformationResponse);
 
         return $response;
     }
-
 
     /**
      * {@inheritdoc}

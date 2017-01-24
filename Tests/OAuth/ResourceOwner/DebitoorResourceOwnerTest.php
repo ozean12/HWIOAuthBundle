@@ -17,7 +17,7 @@ class DebitoorResourceOwnerTest extends GenericOAuth2ResourceOwnerTest
 {
 
     protected $paths = [
-        'identifier' => 'id',
+        'identifier' => 'email',
         'nickname' => 'name',
         'realname' => 'name',
         'email' => 'email',
@@ -39,8 +39,8 @@ class DebitoorResourceOwnerTest extends GenericOAuth2ResourceOwnerTest
          */
         $userResponse = $this->resourceOwner->getUserInformation(['access_token' => 'token']);
 
-        $this->assertEquals(null, $userResponse->getUsername());
-        $this->assertEquals(null, $userResponse->getNickname());
+        $this->assertEquals('', $userResponse->getUsername());
+        $this->assertEquals('Debitoor User', $userResponse->getNickname());
         $this->assertEquals('token', $userResponse->getAccessToken());
         $this->assertNull($userResponse->getRefreshToken());
         $this->assertNull($userResponse->getExpiresIn());
@@ -52,7 +52,6 @@ class DebitoorResourceOwnerTest extends GenericOAuth2ResourceOwnerTest
         // Fake call to match expectations
         $this->buzzClient->send(new \Buzz\Message\Request(), new \Buzz\Message\Response());
     }
-
 
     protected function setUpResourceOwner($name, $httpUtils, array $options)
     {
