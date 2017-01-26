@@ -104,12 +104,12 @@ class FigoResourceOwner extends GenericOAuth2ResourceOwner
     }
 
     /**
-     * @param string $password
      * @param string $userName
+     * @param string $password
      *
      * @return array
      */
-    public function loginFigoUser($password, $userName)
+    public function loginFigoUser($userName, $password)
     {
         $parameters = array(
             'password' => $password,
