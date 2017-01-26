@@ -100,8 +100,6 @@ class FigoResourceOwner extends GenericOAuth2ResourceOwner
         $response = $this->doFigoGetTokenRequest($this->options['create_user_url'], $parameters, $headers);
         $response = $this->getResponseContent($response);
 
-        $this->validateResponseContent($response);
-
         return $response;
     }
 
@@ -124,8 +122,6 @@ class FigoResourceOwner extends GenericOAuth2ResourceOwner
 
         $response = $this->doFigoGetTokenRequest($this->options['create_user_url'], $parameters, $headers);
         $response = $this->getResponseContent($response);
-
-        $this->validateResponseContent($response);
 
         return $response;
     }
