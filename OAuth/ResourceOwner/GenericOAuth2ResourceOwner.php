@@ -45,10 +45,12 @@ class GenericOAuth2ResourceOwner extends AbstractResourceOwner
             );
         }
 
+        $token = new OAuthToken($accessToken);
+        $token->setResourceOwnerName($this->getName());
         $response = $this->getUserResponse();
         $response->setData($content->getContent());
         $response->setResourceOwner($this);
-        $response->setOAuthToken(new OAuthToken($accessToken));
+        $response->setOAuthToken($token);
 
         return $response;
     }
