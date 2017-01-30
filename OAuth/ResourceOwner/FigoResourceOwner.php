@@ -30,6 +30,7 @@ class FigoResourceOwner extends GenericOAuth2ResourceOwner
         $resolver->setDefaults([
             'authorization_url' => 'https://api.figo.me/auth/code',
             'access_token_url' => 'https://api.figo.me/auth/token',
+            'create_user_url' => 'https://api.figo.me/auth/user',
             'infos_url' => 'https://api.figo.me/rest/user',
             'use_bearer_authorization' => true,
             'csrf' => true,
@@ -120,7 +121,7 @@ class FigoResourceOwner extends GenericOAuth2ResourceOwner
         $basicAuthHash = base64_encode(sprintf('%s:%s', $this->options['client_id'], $this->options['client_secret']));
         $headers = ['Authorization: Basic '.$basicAuthHash];
 
-        $response = $this->doFigoGetTokenRequest($this->options['create_user_url'], $parameters, $headers);
+        $response = $this->doFigoGetTokenRequest($this->options['access_token_url'], $parameters, $headers);
         $response = $this->getResponseContent($response);
 
         return $response;
