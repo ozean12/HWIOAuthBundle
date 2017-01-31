@@ -83,6 +83,7 @@ class Configuration implements ConfigurationInterface
             '37signals',
             'itembase',
             'figo',
+            'debitoor',
         ),
         'oauth1' => array(
             'bitbucket',
